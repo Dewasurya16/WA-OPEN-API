@@ -1,8 +1,8 @@
-const sessionName = "yusril";
+const sessionName = "SmartBawangModules";
 const donet = "Jangan lupa support COE bawang MERAH";
 const owner = ["6282220463477"]; // Put your number here ex: ["62xxxxxxxxx"]
 const {
-  default: sansekaiConnect,
+  default: bawangConnect,
   useMultiFileAuthState,
   DisconnectReason,
   fetchLatestBaileysVersion,
@@ -149,7 +149,7 @@ async function startHisoka() {
     )
   );
 
-  const client = sansekaiConnect({
+  const client = bawangConnect({
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
     browser: ["BOT Bawang Merah - coe bawang merah", "Safari", "5.1.7"],
@@ -168,7 +168,7 @@ async function startHisoka() {
       if (!client.public && !mek.key.fromMe && chatUpdate.type === "notify") return;
       if (mek.key.id.startsWith("BAE5") && mek.key.id.length === 16) return;
       m = smsg(client, mek, store);
-      require("./sansekai")(client, m, chatUpdate, store);
+      require("./botCoe")(client, m, chatUpdate, store);
     } catch (err) {
       console.log(err);
     }
